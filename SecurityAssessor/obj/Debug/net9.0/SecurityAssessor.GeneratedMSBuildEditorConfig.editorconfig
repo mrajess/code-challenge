@@ -24,10 +24,6 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/GitHub/code-challenge/SecurityAssessor/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/GitHub/code-challenge/SecurityAssessor/Pages/ProcessString.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvY2Vzc1N0cmluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -8,8 +8,8 @@ namespace SecurityAssessor.Pages
     public class ProcessStringModel : PageModel
     {
         [BindProperty]
-        public string InputString { get; set; }
-        public List<Result> ResultList { get; set; }
+        public required string InputString { get; set; }
+        public required List<Result> ResultList { get; set; }
         public void OnPost()
         {
             ResultList = Assessment.RunAssessment(InputString);
@@ -132,9 +132,9 @@ namespace SecurityAssessor.Pages
                         {
                             findings.Add(new Finding
                             {
-                                Name = "MFA is not enabled",
-                                Description = "MFA is not enabled.",
-                                SuggestedRemediation = "Enable MFA."
+                                Name = "MFA is not enabled.",
+                                Description = "MFA is critical to securing our identities. Please setup Entra MFA as per our standards.",
+                                SuggestedRemediation = "Please refer to the following for additional guidance on how to remediate: https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-azure-mfa"
                             });
                         }
                     }
@@ -169,9 +169,9 @@ namespace SecurityAssessor.Pages
                             {
                                 findings.Add(new Finding
                                 {
-                                    Name = "Insecure port detected",
-                                    Description = "Insecure port detected. Port is: " + port,
-                                    SuggestedRemediation = "Change the port to a secure port."
+                                    Name = "Insecure port detected.",
+                                    Description = "Insecure port detected. Port is: " + port + ". All web traffic should be over 443 and using a secure protocol (HTTPS). Use an NSG or service specific equivalents in the case of PaaS. Additionally, consider only exposing services via Application Gateway with WAF enabled.",
+                                    SuggestedRemediation = "Please refer to the following for additional guidance on how to create an NSG and rule: https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal and here for guidance on how to setup Application Gateway: https://learn.microsoft.com/en-us/azure/application-gateway/create-multiple-sites-portal."
                                 });
                             }
 
@@ -179,19 +179,19 @@ namespace SecurityAssessor.Pages
                             {
                                 findings.Add(new Finding
                                 {
-                                    Name = "SSH port detected",
-                                    Description = "SSH port detected.",
-                                    SuggestedRemediation = "Create NSG rule."
+                                    Name = "SSH port (22) detected.",
+                                    Description = "SSH port detected. Remote administration ports should not be exposed to the internet. Azure Bastion should be leveraged to securely administer your services.",
+                                    SuggestedRemediation = "Please refer to the following for additional guidance on how to create an NSG and rule: https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal and here for gudiance on how to setup Azure Bastion: https://learn.microsoft.com/en-us/azure/bastion/quickstart-host-portal."
                                 });
                             }
-
+                        
                             if (port == 3389)
                             {
                                 findings.Add(new Finding
                                 {
-                                    Name = "RDP port detected",
-                                    Description = "RDP port detected.",
-                                    SuggestedRemediation = "Create NSG rule."
+                                    Name = "RDP port (3389) detected.",
+                                    Description = "RDP port detected. Remote administration ports should not be exposed to the internet. Azure Bastion should be leveraged to securely administer your services.",
+                                    SuggestedRemediation = "Please refer to the following for additional guidance on how to create an NSG and rule: https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal and here for gudiance on how to setup Azure Bastion: https://learn.microsoft.com/en-us/azure/bastion/quickstart-host-portal."
                                 });
                             }
                         }
@@ -227,8 +227,8 @@ namespace SecurityAssessor.Pages
                             findings.Add(new Finding
                             {
                                 Name = "Resiliency risk detected",
-                                Description = "Resiliency risk detected. Consider using GRS for redundancy.",
-                                SuggestedRemediation = "Change replication to GRS."
+                                Description = "Presently data is not protected against a regional outage. This is merely a warning. Please consider implementing Geo-Redundant replication on your storage account.",
+                                SuggestedRemediation = "Please refer to the following for additional guidance on how to remediate:  https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal#changing-redundancy-configuration"
                             });
                         }
                     }
@@ -256,14 +256,34 @@ namespace SecurityAssessor.Pages
                         findings.AddRange(assessmentFindings);
                     }
 
-                    if (resource.Encryption is not null && !resource.Encryption.Value)
+                    if (resource.Encryption is not null && !resource.Encryption.Value && resource.Type == "database")
                     {
 
                         findings.Add(new Finding
                         {
-                            Name = "Encryption is not enabled",
+                            Name = "Encryption is not enabled on database.",
+                            Description = "Transparent Data Encryption is on by default on all Azure SQL servers. However, please implement customer managed keys as per our encryption standard.",
+                            SuggestedRemediation = "Please refer to the following for additional guidance on how to remediate: https://learn.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-byok-create-server?view=azuresql&tabs=azure-portal"
+                        });
+                    }
+                    if (resource.Encryption is not null && !resource.Encryption.Value && resource.Type == "virtual_machine")
+                    {
+
+                        findings.Add(new Finding
+                        {
+                            Name = "Encryption is not enabled on virtual machine.",
                             Description = "Encryption is not enabled.",
-                            SuggestedRemediation = "Enable encryption."
+                            SuggestedRemediation = "Please refer to the following for additional guidance on how to remediate: https://learn.microsoft.com/en-us/azure/virtual-machines/windows/disk-encryption-portal-quickstart#encrypt-the-virtual-machine."
+                        });
+                    }
+                    if (resource.Encryption is not null && !resource.Encryption.Value && resource.Type == "storage_account")
+                    {
+
+                        findings.Add(new Finding
+                        {
+                            Name = "Encryption is not enabled on storage account.",
+                            Description = "Encryption at rest is on by default on all Azure Services and cannot be disabled. However, please implement customer managed keys as per our encryption standard.",
+                            SuggestedRemediation = "Please refer to the following for additional guidance on how to remediate: https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-configure-existing-account?tabs=azure-portal."
                         });
                     }
 
@@ -295,8 +315,8 @@ namespace SecurityAssessor.Pages
                         findings.Add(new Finding
                         {
                             Name = "Password detected",
-                            Description = "Password detected.",
-                            SuggestedRemediation = "Use a strong password."
+                            Description = "A plain text password was detected in your code. Passwords should be vaulted.",
+                            SuggestedRemediation = "Please refer to the following for additional guidance on how to remediate: https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/key-vault-parameter?tabs=azure-cli."
                         });
                     }
 
