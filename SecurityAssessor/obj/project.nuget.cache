@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "fjtgV0MxQtw=",
+  "success": true,
+  "projectFilePath": "C:\\GitHub\\code-challenge\\SecurityAssessor\\SecurityAssessor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mrajess\\.nuget\\packages\\system.text.json\\9.0.1\\system.text.json.9.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

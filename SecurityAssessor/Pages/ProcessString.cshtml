@@ -1,0 +1,99 @@
+﻿@page "/"
+@model SecurityAssessor.Pages.ProcessStringModel
+@{
+    ViewData["Title"] = "Process String";
+}
+
+<h2>Submit the JSON describing your infrastructure</h2>
+
+<form method="post">
+    <div>
+        <label for="inputString">Input String:</label>
+        <input type="text" id="inputString" asp-for="InputString" />
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+@if (Model.ResultList != null && Model.ResultList.Count > 0)
+{
+    <h3>Results:</h3>
+
+    <style>
+        body {
+            text-align: center;
+            margin: 50px;
+        }
+
+        h2 {
+            color: DarkSlateGrey;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            border: 2px solid DarkSlateGrey;
+        }
+
+        th, td {
+            border: 1px solid DarkSlateGrey;
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: GhostWhite;
+        }
+
+        .nested-table {
+            border: 1px solid DimGray;
+            margin: 10px auto;
+            width: 100%;
+        }
+
+            .nested-table th, .nested-table td {
+                border: 1px solid DimGray;
+                padding: 5px;
+            }
+    </style>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Resource Name</th>
+                <th>Findings</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.ResultList)
+            {
+                <tr>
+                    <td>@result.ResourceID</td>
+                    <td>
+                        <table class="nested-table">
+                            <thead>
+                                <tr>
+                                    <th>Finding Name</th>
+                                    <th>Finding Description</th>
+                                    <th>Finding Remediation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var finding in result.Findings)
+                                {
+                                    <tr>
+                                        <td>@finding.Name</td>
+                                        <td>@finding.Description</td>
+                                        <td>@finding.SuggestedRemediation</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
