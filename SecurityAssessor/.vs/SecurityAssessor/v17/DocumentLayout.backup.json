@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\GitHub\\code-challenge\\SecurityAssessor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{90452B7C-1059-4022-92EB-855519F6E3C4}|SecurityAssessor.csproj|c:\\github\\code-challenge\\securityassessor\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{90452B7C-1059-4022-92EB-855519F6E3C4}|SecurityAssessor.csproj|solutionrelative:pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{90452B7C-1059-4022-92EB-855519F6E3C4}|SecurityAssessor.csproj|c:\\github\\code-challenge\\securityassessor\\pages\\processstring.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{90452B7C-1059-4022-92EB-855519F6E3C4}|SecurityAssessor.csproj|solutionrelative:pages\\processstring.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -22,43 +18,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\GitHub\\code-challenge\\SecurityAssessor\\Pages\\Index.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Index.cshtml",
-              "ToolTip": "C:\\GitHub\\code-challenge\\SecurityAssessor\\Pages\\Index.cshtml",
-              "RelativeToolTip": "Pages\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-28T00:22:47.078Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\GitHub\\code-challenge\\SecurityAssessor\\Pages\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Pages\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\GitHub\\code-challenge\\SecurityAssessor\\Pages\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-28T00:05:12.752Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ProcessString.cshtml",
               "DocumentMoniker": "C:\\GitHub\\code-challenge\\SecurityAssessor\\Pages\\ProcessString.cshtml",
               "RelativeDocumentMoniker": "Pages\\ProcessString.cshtml",
               "ToolTip": "C:\\GitHub\\code-challenge\\SecurityAssessor\\Pages\\ProcessString.cshtml",
               "RelativeToolTip": "Pages\\ProcessString.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-27T22:50:22.734Z",
               "EditorCaption": ""

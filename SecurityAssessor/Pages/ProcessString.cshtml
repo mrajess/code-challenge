@@ -4,12 +4,11 @@
     ViewData["Title"] = "Process String";
 }
 
-<h2>Submit the JSON describing your infrastructure</h2>
+<h2 style="text-align: center;">Submit the JSON describing your infrastructure</h2>
 
-<form method="post">
+<form method="post" style="text-align: center;">
     <div>
-        <label for="inputString">Input String:</label>
-        <input type="text" id="inputString" asp-for="InputString" />
+        <textarea id="inputString" asp-for="InputString" rows="10" cols="50"></textarea>
     </div>
     <div>
         <button type="submit">Submit</button>
