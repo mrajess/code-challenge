@@ -22,8 +22,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -32,7 +36,7 @@
               "RelativeDocumentMoniker": "Pages\\ProcessString.cshtml.cs",
               "ToolTip": "C:\\GitHub\\code-challenge\\SecurityAssessor\\Pages\\ProcessString.cshtml.cs",
               "RelativeToolTip": "Pages\\ProcessString.cshtml.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAjwHMAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-28T01:12:47.223Z",
               "EditorCaption": ""
@@ -59,8 +63,7 @@
               "RelativeToolTip": "Pages\\ProcessString.cshtml",
               "ViewState": "AgIAAC4AAAAAAAAAAAAcwGEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-27T22:50:22.734Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-27T22:50:22.734Z"
             }
           ]
         }

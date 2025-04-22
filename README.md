@@ -86,7 +86,7 @@ Follow guidance provided here: https://learn.microsoft.com/en-us/visualstudio/ge
 Once imported, simply build. 
 
 ### #2 Access already deployed instance of the project
-Project is deployed to an Azure Web App and is accessible here: https://aspnetmrajess-dgcmhtexbve6gxec.westus2-01.azurewebsites.net/
+Project is deployed to an Azure Web App and is accessible here: https://www.mrajess.com
 
 ### #3 Create your own App Service using Azure CLI
 1. Log in to Azure CLI: Open your terminal and log in to Azure using the following command:

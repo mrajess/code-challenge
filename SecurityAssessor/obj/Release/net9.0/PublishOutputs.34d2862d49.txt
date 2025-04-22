@@ -1,0 +1,7 @@
+C:\GitHub\code-challenge\SecurityAssessor\obj\Release\net9.0\PubTmp\Out\SecurityAssessor.exe
+C:\GitHub\code-challenge\SecurityAssessor\obj\Release\net9.0\PubTmp\Out\appsettings.Development.json
+C:\GitHub\code-challenge\SecurityAssessor\obj\Release\net9.0\PubTmp\Out\appsettings.json
+C:\GitHub\code-challenge\SecurityAssessor\obj\Release\net9.0\PubTmp\Out\SecurityAssessor.dll
+C:\GitHub\code-challenge\SecurityAssessor\obj\Release\net9.0\PubTmp\Out\SecurityAssessor.deps.json
+C:\GitHub\code-challenge\SecurityAssessor\obj\Release\net9.0\PubTmp\Out\SecurityAssessor.runtimeconfig.json
+C:\GitHub\code-challenge\SecurityAssessor\obj\Release\net9.0\PubTmp\Out\SecurityAssessor.pdb
